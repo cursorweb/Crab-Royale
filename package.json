@@ -1,0 +1,31 @@
+{
+  "name": "crab-royale",
+  "version": "1.0.0",
+  "description": "Battle Royale with Crabs!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cursorweb/Crab-Royale.git"
+  },
+  "keywords": [
+    "crab",
+    "game",
+    "moist",
+    "battle",
+    "royale"
+  ],
+  "author": "Coder100",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cursorweb/Crab-Royale/issues"
+  },
+  "homepage": "https://github.com/cursorweb/Crab-Royale#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "socket.io": "^4.3.0"
+  }
+}
