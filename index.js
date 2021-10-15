@@ -7,7 +7,8 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 
 
-app.use(express.static(path.join(__dirname + "/public")));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "node_modules", "p5"))); // hacky, i know
 
 app.set("view engine", "ejs");
 app.set("views", "views");
