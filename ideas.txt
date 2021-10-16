@@ -2,3 +2,11 @@ Todo:
 - quadtrees ;(((
 - graphics plz
 - plz make mvp before winter break that would be so cool
+- split up code
+- try using webpack for extra SPEED
+- https://seblee.me/2011/04/multi-touch-game-controller-in-javascripthtml5-for-ipad/
+
+Code:
+canvas.requestFullscreen({
+    navigationUI: "hide"
+});
