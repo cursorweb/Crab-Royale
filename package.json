@@ -4,7 +4,8 @@
   "description": "Battle Royale with Crabs!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --config webpack.dev.js",
+    "prod": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,11 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "p5": "^1.4.0",
-    "socket.io": "^4.3.0"
+    "socket.io": "^4.3.0",
+    "socket.io-client": "^4.3.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0"
   }
 }

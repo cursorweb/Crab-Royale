@@ -1,19 +1,22 @@
 const mobile = true;//'createTouch' in document;
 
 class Movement {
-    constructor(canvas) {
+    constructor(canvas, p) {
+        this.p = p;
+
         this.canvas = canvas;
+
         this.left = -1;
         this.right = -1;
 
         this.moveVec = {
-            fg: createVector(0, 0), // finger
-            bg: createVector(0, 0), // back
+            fg: p.createVector(0, 0), // finger
+            bg: p.createVector(0, 0), // back
         };
 
         this.attkVec = {
-            fg: createVector(0, 0), // finger
-            bg: createVector(0, 0), // back
+            fg: p.createVector(0, 0), // finger
+            bg: p.createVector(0, 0), // back
         };
 
         this.canvas.addEventListener("touchstart", this.onTouchStart.bind(this), false);
@@ -22,26 +25,28 @@ class Movement {
     }
 
     draw() {
+        let p = this.p;
+        
         // movement
         if (this.left > -1) {
-            fill(0, 0, 0, 255 / 4);
-            circle(this.moveVec.bg.x, this.moveVec.bg.y, 100, 100);
-            fill(0, 0, 0, 255 / 3);
-            circle(this.moveVec.fg.x, this.moveVec.fg.y, 50, 50);
+            p.fill(0, 0, 0, 255 / 4);
+            p.circle(this.moveVec.bg.x, this.moveVec.bg.y, 100, 100);
+            p.fill(0, 0, 0, 255 / 3);
+            p.circle(this.moveVec.fg.x, this.moveVec.fg.y, 50, 50);
         }
 
         // attack
         if (this.right > -1) {
-            fill(0, 0, 0, 255 / 4);
-            circle(this.attkVec.bg.x, this.attkVec.bg.y, 100, 100);
-            fill(0, 0, 0, 255 / 3);
-            circle(this.attkVec.fg.x, this.attkVec.fg.y, 50, 50);
+            p.fill(0, 0, 0, 255 / 4);
+            p.circle(this.attkVec.bg.x, this.attkVec.bg.y, 100, 100);
+            p.fill(0, 0, 0, 255 / 3);
+            p.circle(this.attkVec.fg.x, this.attkVec.fg.y, 50, 50);
         }
     }
 
     onTouchStart(e) {
         for (const touch of e.changedTouches) {
-            if (this.left < 0 && touch.clientX <= width / 2) {
+            if (this.left < 0 && touch.clientX <= innerWidth / 2) {
                 this.left = touch.identifier;
 
                 this.moveVec.bg.x = touch.clientX;
@@ -51,7 +56,7 @@ class Movement {
                 this.moveVec.fg.y = touch.clientY;
             }
 
-            if (this.right < 0 && touch.clientX > width / 2) {
+            if (this.right < 0 && touch.clientX > innerWidth / 2) {
                 this.right = touch.identifier;
 
                 this.attkVec.bg.x = touch.clientX;
@@ -91,3 +96,5 @@ class Movement {
         }
     }
 }
+
+export { mobile, Movement };
