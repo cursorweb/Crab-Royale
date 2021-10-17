@@ -2,7 +2,7 @@
   "name": "crab-royale",
   "version": "1.0.0",
   "description": "Battle Royale with Crabs!",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "dev": "webpack --config webpack.dev.js",
     "prod": "webpack --config webpack.prod.js"

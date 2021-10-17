@@ -1,34 +1,31 @@
-import P5 from "p5";
-import io from "socket.io-client";
+const path = require("path");
 
-import { Movement, mobile } from "./movement";
+const express = require("express");
+const app = express();
 
-new P5(p => {
-    const socket = io();
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
 
-    socket.on("connect", () => {
-        console.log("connected as", socket.id);
-    });
 
-    let canvas;
-    let joystick;
+app.use(express.static(path.join(__dirname, "..", "public")));
 
-    p.setup = () => {
-        p.createCanvas(innerWidth, innerHeight).class("game");
+app.set("view engine", "ejs");
+app.set("views", "views");
 
-        p.noStroke();
-
-        canvas = document.querySelector(".game");
-        if (mobile) joystick = new Movement(canvas, p);
-    };
-
-    p.draw = () => {
-        p.background(244, 234, 201);
-
-        if (mobile) joystick.draw();
-    };
-
-    p.windowResized = () => {
-        p.resizeCanvas(innerWidth, innerHeight);
-    };
+app.get("/", (_, res) => {
+    res.render("index");
 });
+
+
+http.listen(8080);
+
+
+io.on("connection", socket => {
+    console.log(socket.id, "connected");
+
+    socket.on("disconnect", () => {
+        console.log(socket.id, "disconnected");
+    });
+});
+
+console.log("Ready on http://localhost:8080");

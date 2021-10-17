@@ -7,6 +7,13 @@ The arena is surrounded by a giant tsunami that will fling you into the center!!
 ## Controls
 Designed for mobile only, (pc players will have a very bad time) left hand bar is for movement, and right side is for combat. WASD/Arrow Keys to move and click and hold to attack. Mouse to look around.
 
+## Running
+```sh
+npm run dev # compile for dev
+npm run prod # compile for prod
+```
+Don't forget to `node .` somewhere!
+
 ## Screenshots
 ...
 

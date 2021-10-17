@@ -5,7 +5,7 @@ module.exports = {
     watchOptions: {
         ignored: ["**/node_modules"]
     },
-    entry: "./server/index.js",
+    entry: "./client/index.js",
     devtool: "inline-source-map",
     output: {
         filename: "main.js",
